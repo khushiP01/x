@@ -133,12 +133,14 @@ export function Slider({
 }
 
 export function VainillaCard({ quote, author }: TestimonialsSlider["quotes"][0]) {
+  if (!author) return null;
+  
   return (
     <div className="min-w-0 max-w-full shrink-0 grow-0 basis-[min(740px,100%)] self-stretch md:pr-10">
       <article className="embla__slide flex h-full w-full min-w-0 transform touch-pan-y touch-pinch-zoom select-none flex-col rounded-xl border border-border [backface-visibility:hidden] last:visible! dark:border-dark-border">
         <div className="flex flex-1 items-start border-b border-border px-5 py-[18px] dark:border-dark-border md:px-8 md:py-7">
           <blockquote className="text-pretty text-xl font-extralight leading-[135%] text-text-primary dark:text-dark-text-primary sm:text-2xl md:text-4xl">
-            “{quote}”
+            "{quote}"
           </blockquote>
         </div>
         <div className="flex items-center gap-4 pl-5">
@@ -153,17 +155,17 @@ export function VainillaCard({ quote, author }: TestimonialsSlider["quotes"][0])
             <div className="flex flex-1 flex-col">
               <h5 className="text-base font-medium md:text-lg">{author._title}</h5>
               <p className="text-pretty text-sm text-text-tertiary dark:text-dark-text-tertiary md:text-base">
-                {author._title}, {author.company._title}
+                {author._title}, {typeof author.company === 'string' ? author.company : (author.company as any)?._title}
               </p>
             </div>
           </div>
           <div className="pr-5">
-            {author.company.image ? (
+            {typeof author.company !== 'string' && (author.company as any)?.image ? (
               <BaseHubImage
-                alt={author.company.image.alt ?? author.company._title}
+                alt={(author.company as any).image.alt ?? (author.company as any)._title}
                 className="w-12 md:w-16"
                 height={48}
-                src={author.company.image.url}
+                src={(author.company as any).image.url}
                 width={48}
               />
             ) : null}
