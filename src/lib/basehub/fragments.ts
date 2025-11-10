@@ -75,13 +75,7 @@ export const quoteFragment = fragmentOn("QuoteComponent", {
       url: true,
       alt: true,
     },
-    company: {
-      _title: true,
-      image: {
-        url: true,
-        alt: true,
-      },
-    },
+    company: true,
     role: true,
   },
   quote: true,
