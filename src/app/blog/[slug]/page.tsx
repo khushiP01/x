@@ -68,7 +68,6 @@ export const generateMetadata = async ({
             first: 1,
           },
           items: {
-            ogImage: { url: true },
             _id: true,
             _title: true,
             description: true,
@@ -81,17 +80,14 @@ export const generateMetadata = async ({
   const post = data.site.blog.posts.items[0];
 
   if (!post) return undefined;
-  const images = [{ url: post.ogImage.url }];
 
   return {
     title: post._title,
     description: post.description,
     openGraph: {
-      images,
       type: "article",
     },
     twitter: {
-      images,
       card: "summary_large_image",
       site: data.site.settings.metadata.sitename,
     },

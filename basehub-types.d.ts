@@ -88,7 +88,7 @@ export interface AuthorComponent {
     _slugPath: Scalars['String']
     _sys: BlockDocumentSys
     _title: Scalars['String']
-    company: CompanyComponent
+    company: Scalars['String']
     image: BlockImage
     role: Scalars['String']
     x: (Scalars['String'] | null)
@@ -1233,7 +1233,6 @@ export interface Metadata {
     defaultDescription: Scalars['String']
     defaultTitle: Scalars['String']
     favicon: BlockImage
-    ogImage: BlockOgImage
     sitename: Scalars['String']
     titleTemplate: Scalars['String']
     xAccount: (SocialLinkComponent | null)
@@ -3106,7 +3105,7 @@ export interface AuthorComponentGenqlSelection{
     _slugPath?: boolean | number
     _sys?: BlockDocumentSysGenqlSelection
     _title?: boolean | number
-    company?: CompanyComponentGenqlSelection
+    company?: boolean | number
     image?: BlockImageGenqlSelection
     role?: boolean | number
     x?: boolean | number
@@ -3114,9 +3113,7 @@ export interface AuthorComponentGenqlSelection{
     __fragmentOn?: "AuthorComponent"
 }
 
-export interface AuthorComponentFilterInput {AND?: (AuthorComponentFilterInput | null),OR?: (AuthorComponentFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),company?: (AuthorComponentFilterInput__company_0___company | null),role?: (StringFilter | null),x?: (StringFilter | null)}
-
-export interface AuthorComponentFilterInput__company_0___company {_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),url?: (StringFilter | null)}
+export interface AuthorComponentFilterInput {AND?: (AuthorComponentFilterInput | null),OR?: (AuthorComponentFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),role?: (StringFilter | null),x?: (StringFilter | null)}
 
 export interface AuthorComponentSearchInput {
 /** Searchable fields for query */
@@ -5394,7 +5391,6 @@ export interface MetadataGenqlSelection{
     defaultDescription?: boolean | number
     defaultTitle?: boolean | number
     favicon?: BlockImageGenqlSelection
-    ogImage?: BlockOgImageGenqlSelection
     sitename?: boolean | number
     titleTemplate?: boolean | number
     xAccount?: SocialLinkComponentGenqlSelection

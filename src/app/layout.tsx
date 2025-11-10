@@ -50,9 +50,6 @@ export const generateMetadata = async (): Promise<Metadata> => {
             url: true,
             mimeType: true,
           },
-          ogImage: {
-            url: true,
-          },
           xAccount: {
             url: true,
           },
@@ -61,7 +58,7 @@ export const generateMetadata = async (): Promise<Metadata> => {
     },
   });
 
-  const images = [{ url: data.site.settings.metadata.ogImage.url }];
+  // const images = [{ url: data.site.settings.metadata.ogImage.url }];
 
   let xAccount: string | undefined = undefined;
 
@@ -90,10 +87,9 @@ export const generateMetadata = async (): Promise<Metadata> => {
         type: data.site.settings.metadata.favicon.mimeType,
       },
     ],
-    openGraph: { type: "website", images, siteName: data.site.settings.metadata.sitename },
+    openGraph: { type: "website", siteName: data.site.settings.metadata.sitename },
     twitter: {
       card: "summary_large_image",
-      images,
       site: data.site.settings.metadata.sitename,
       creator: xAccount,
     },
