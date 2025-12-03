@@ -78,7 +78,8 @@
 
 body {
   ::selection {
-    @apply bg-accent text-yellow-200;
+    background-color: hsl(var(--accent));
+    color: rgb(254 240 138);
   }
 }
 
