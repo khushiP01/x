@@ -19,7 +19,9 @@ export const featureHeroFragment = fragmentOn("FeatureHeroComponent", {
   image: darkLightImageFragment,
   actions: {
     _id: true,
-    href: true,
+    href: {
+      plainText: true,
+    },
     label: true,
     type: true,
   },
@@ -47,7 +49,7 @@ export default function FeatureHero({
                 <TrackedButtonLink
                   key={action._id}
                   analyticsKey={eventsKey}
-                  href={action.href}
+                  href="https://app.standout-app.com/"
                   intent={action.type}
                   name="cta_click"
                   size="lg"
@@ -78,7 +80,7 @@ export default function FeatureHero({
                   <TrackedButtonLink
                     key={action._id}
                     analyticsKey={eventsKey}
-                    href={action.href}
+                    href="https://app.standout-app.com/"
                     intent={action.type}
                     name="cta_click"
                     size="lg"
@@ -116,7 +118,7 @@ export default function FeatureHero({
                     <TrackedButtonLink
                       key={action._id}
                       analyticsKey={eventsKey}
-                      href={action.href}
+                      href="https://app.standout-app.com/"
                       intent={action.type}
                       name="cta_click"
                       size="lg"
@@ -175,7 +177,7 @@ export default function FeatureHero({
                     <TrackedButtonLink
                       key={action._id}
                       analyticsKey={eventsKey}
-                      href={action.href}
+                      href="https://app.standout-app.com/"
                       intent={action.type}
                       name="cta_click"
                       size="lg"

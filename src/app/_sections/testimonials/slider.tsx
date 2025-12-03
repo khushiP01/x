@@ -154,21 +154,7 @@ export function VainillaCard({ quote, author }: TestimonialsSlider["quotes"][0])
             />
             <div className="flex flex-1 flex-col">
               <h5 className="text-base font-medium md:text-lg">{author._title}</h5>
-              <p className="text-pretty text-sm text-text-tertiary dark:text-dark-text-tertiary md:text-base">
-                {author._title}, {typeof author.company === 'string' ? author.company : (author.company as any)?._title}
-              </p>
             </div>
-          </div>
-          <div className="pr-5">
-            {typeof author.company !== 'string' && (author.company as any)?.image ? (
-              <BaseHubImage
-                alt={(author.company as any).image.alt ?? (author.company as any)._title}
-                className="w-12 md:w-16"
-                height={48}
-                src={(author.company as any).image.url}
-                width={48}
-              />
-            ) : null}
           </div>
         </div>
       </article>

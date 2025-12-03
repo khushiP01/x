@@ -22,7 +22,9 @@ export const heroFragment = fragmentOn("HeroComponent", {
   subtitle: true,
   actions: {
     _id: true,
-    href: true,
+    href: {
+      plainText: true,
+    },
     label: true,
     type: true,
   },
@@ -78,7 +80,7 @@ export function Hero(hero: Hero & { eventsKey: GeneralEvents["ingestKey"] }) {
                     ? "flex w-full"
                     : "max-w-sm:border-x-0! border-border dark:border-dark-border flex w-full border-x! border-y-0! bg-transparent! backdrop-blur-xl transition-colors duration-150 hover:bg-black/5! dark:hover:bg-white/5!",
                 )}
-                href={href}
+                href="https://app.standout-app.com/"
                 intent={type}
                 name="cta_click"
               >

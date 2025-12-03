@@ -29,7 +29,7 @@ export function Callout2(callout: Callout2 & { eventsKey: GeneralEvents["ingestK
             <TrackedButtonLink
               key={action._id}
               analyticsKey={callout.eventsKey}
-              href={action.href}
+              href="https://app.standout-app.com/"
               intent={action.type}
               name="secondary_cta_click"
             >

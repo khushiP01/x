@@ -94,7 +94,7 @@ function PricingCard(item: PricingPlanItem["plan"]) {
         ) : null}
         <ButtonLink
           className="z-10 w-full"
-          href="/sign-up"
+          href="https://app.standout-app.com/"
           intent={item.isMostPopular ? "primary" : "secondary"}
           size="lg"
         >

@@ -13,7 +13,7 @@ import type { Metadata } from "next";
 import { basehub } from "basehub";
 import { notFound } from "next/navigation";
 
-export const dynamic = "force-static";
+export const dynamic = "force-dynamic";
 
 export const generateMetadata = async (): Promise<Metadata | undefined> => {
   const data = await basehub({ draft: (await draftMode()).isEnabled }).query({
@@ -34,89 +34,90 @@ export const generateMetadata = async (): Promise<Metadata | undefined> => {
 };
 
 export default async function BlogPage() {
-  return (
-    <Pump
-      queries={[
-        {
-          _componentInstances: {
-            blogPost: {
-              _searchKey: true,
+  try {
+    return (
+      <Pump
+        queries={[
+          {
+            _componentInstances: {
+              blogPost: {
+                _searchKey: true,
+              },
             },
-          },
-          collections: {
-            authors: {
-              items: {
-                _id: true,
-                image: avatarFragment,
+            collections: {
+              authors: {
+                items: {
+                  _id: true,
+                  image: avatarFragment,
+                },
+              },
+            },
+            site: {
+              generalEvents: { ingestKey: true },
+              blog: {
+                _analyticsKey: true,
+                mainTitle: true,
+                listTitle: true,
+                posts: {
+                  __args: { orderBy: "publishedAt__DESC" },
+                  items: blogpostCardFragment,
+                },
               },
             },
           },
-          site: {
-            generalEvents: { ingestKey: true },
-            blog: {
-              _analyticsKey: true,
-              mainTitle: true,
-              featuredPosts: blogpostCardFragment,
-              listTitle: true,
-              posts: {
-                __args: { orderBy: "publishedAt__DESC" },
-                items: blogpostCardFragment,
-              },
-            },
+        ]}
+      >
+        {async ([
+          {
+            _componentInstances: { blogPost },
+            site: { blog, generalEvents },
+            collections: { authors },
           },
-        },
-      ]}
-    >
-      {async ([
-        {
-          _componentInstances: { blogPost },
-          site: { blog, generalEvents },
-          collections: { authors },
-        },
-      ]) => {
-        "use server";
-        const { posts } = blog;
+        ]) => {
+          "use server";
+          const { posts } = blog;
 
-        if (posts.items.length === 0) {
-          notFound();
-        }
+          return (
+            <Section className="gap-16">
+              <PageView ingestKey={generalEvents.ingestKey} />
+              <div className="grid grid-cols-1 gap-5 self-stretch md:grid-cols-2">
+                <Heading align="left">
+                  <h2>{blog.mainTitle}</h2>
+                </Heading>
+                <SearchHitsProvider
+                  authorsAvatars={authors.items.reduce(
+                    (acc: Record<string, AvatarFragment>, author) => {
+                      acc[author._id] = author.image;
 
-        return (
-          <Section className="gap-16">
-            <PageView ingestKey={generalEvents.ingestKey} />
-            <div className="grid grid-cols-1 gap-5 self-stretch md:grid-cols-2">
-              <Heading align="left">
-                <h2>{blog.mainTitle}</h2>
-              </Heading>
-              <SearchHitsProvider
-                authorsAvatars={authors.items.reduce(
-                  (acc: Record<string, AvatarFragment>, author) => {
-                    acc[author._id] = author.image;
-
-                    return acc;
-                  },
-                  {},
-                )}
-              >
-                <Search _searchKey={blogPost._searchKey} />
-              </SearchHitsProvider>
-              {blog.featuredPosts
-                ?.slice(0, 3)
-                .map((post) => <BlogpostCard key={post._id} type="card" {...post} />)}
-            </div>
-            <div className="w-full space-y-3">
-              <Heading align="left">
-                <h3 className="text-xl! lg:text-2xl!">{blog.listTitle}</h3>
-              </Heading>
-              <div className="-mx-4 flex flex-col self-stretch">
-                {posts.items.map((post) => (
-                  <BlogpostCard key={post._id} {...post} className="-mx-4" />
-                ))}
+                      return acc;
+                    },
+                    {},
+                  )}
+                >
+                  <Search _searchKey={blogPost._searchKey} />
+                </SearchHitsProvider>
               </div>
-            </div>
-          </Section>
-        );
-      }}
-    </Pump>
-  );
+              <div className="w-full space-y-3">
+                <Heading align="left">
+                  <h3 className="text-xl! lg:text-2xl!">{blog.listTitle}</h3>
+                </Heading>
+                {posts.items.length > 0 ? (
+                  <div className="-mx-4 flex flex-col self-stretch">
+                    {posts.items.map((post) => (
+                      <BlogpostCard key={post._id} {...post} className="-mx-4" />
+                    ))}
+                  </div>
+                ) : (
+                  <p className="text-text-secondary dark:text-dark-text-secondary">No blog posts yet.</p>
+                )}
+              </div>
+            </Section>
+          );
+        }}
+      </Pump>
+    );
+  } catch (error) {
+    console.error("Error loading blog page:", error);
+    notFound();
+  }
 }

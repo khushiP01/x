@@ -75,8 +75,6 @@ export const quoteFragment = fragmentOn("QuoteComponent", {
       url: true,
       alt: true,
     },
-    company: true,
-    role: true,
   },
   quote: true,
 });
@@ -90,7 +88,9 @@ export type QuoteFragment = fragmentOn.infer<typeof quoteFragment>;
 export const buttonFragment = fragmentOn("ButtonComponent", {
   _id: true,
   label: true,
-  href: true,
+  href: {
+    plainText: true,
+  },
   type: true,
   icon: true,
 });

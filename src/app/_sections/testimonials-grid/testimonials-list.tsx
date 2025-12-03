@@ -51,9 +51,6 @@ export function TestimonialsGridClient({ quotes }: { quotes: QuoteFragment[] }) 
                     <h5 className="text-xs font-medium text-text-tertiary dark:text-dark-text-tertiary md:text-sm">
                       {author._title}
                     </h5>
-                    <p className="text-pretty text-xs text-text-tertiary dark:text-dark-text-tertiary md:text-sm">
-                      {author.role}, {typeof author.company === 'string' ? author.company : (author.company as any)?._title}
-                    </p>
                   </div>
                   <div className="pl-4">
                     <figure className="aspect-square size-8 rounded-full">

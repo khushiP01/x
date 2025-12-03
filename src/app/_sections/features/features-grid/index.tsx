@@ -66,7 +66,7 @@ export function FeaturesGrid({
           <TrackedButtonLink
             key={action._id}
             analyticsKey={eventsKey}
-            href={action.href}
+            href="https://app.standout-app.com/"
             intent={action.type}
             name="cta_click"
             size="lg"

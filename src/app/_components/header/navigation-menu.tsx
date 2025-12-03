@@ -153,7 +153,7 @@ export function DesktopMenu({ navbar, rightCtas }: HeaderFragment) {
       <div className="hidden items-center gap-2 justify-self-end lg:flex">
         {rightCtas.items.map((cta) => {
           return (
-            <ButtonLink key={cta._id} className="px-3.5!" href={cta.href} intent={cta.type}>
+            <ButtonLink key={cta._id} className="px-3.5!" href="https://app.standout-app.com/" intent={cta.type}>
               {cta.label}
             </ButtonLink>
           );
@@ -209,7 +209,7 @@ export function MobileMenu({ navbar, rightCtas }: HeaderFragment) {
               <div className="flex items-center justify-start gap-2">
                 {rightCtas.items.map((cta) => {
                   return (
-                    <ButtonLink key={cta._id} href={cta.href} intent={cta.type} size="lg">
+                    <ButtonLink key={cta._id} href="https://app.standout-app.com/" intent={cta.type} size="lg">
                       {cta.label}
                     </ButtonLink>
                   );

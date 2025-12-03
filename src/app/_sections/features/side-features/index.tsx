@@ -22,7 +22,9 @@ export const featuresSideBySideFragment = fragmentOn("FeaturesSideBySideComponen
   actions: {
     _analyticsKey: true,
     _id: true,
-    href: true,
+    href: {
+      plainText: true,
+    },
     label: true,
     type: true,
   },
@@ -51,7 +53,7 @@ export function SideFeatures({
               <TrackedButtonLink
                 key={action._id}
                 analyticsKey={eventsKey}
-                href={action.href}
+                href="https://app.standout-app.com/"
                 intent={action.type}
                 name="main_cta_click"
                 size="lg"

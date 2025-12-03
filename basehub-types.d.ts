@@ -88,14 +88,11 @@ export interface AuthorComponent {
     _slugPath: Scalars['String']
     _sys: BlockDocumentSys
     _title: Scalars['String']
-    company: Scalars['String']
     image: BlockImage
-    role: Scalars['String']
-    x: (Scalars['String'] | null)
     __typename: 'AuthorComponent'
 }
 
-export type AuthorComponentOrderByEnum = '_sys_createdAt__ASC' | '_sys_createdAt__DESC' | '_sys_hash__ASC' | '_sys_hash__DESC' | '_sys_id__ASC' | '_sys_id__DESC' | '_sys_lastModifiedAt__ASC' | '_sys_lastModifiedAt__DESC' | '_sys_slug__ASC' | '_sys_slug__DESC' | '_sys_title__ASC' | '_sys_title__DESC' | 'company__ASC' | 'company__DESC' | 'image__ASC' | 'image__DESC' | 'role__ASC' | 'role__DESC' | 'untitled__ASC' | 'untitled__DESC' | 'x__ASC' | 'x__DESC'
+export type AuthorComponentOrderByEnum = '_sys_createdAt__ASC' | '_sys_createdAt__DESC' | '_sys_hash__ASC' | '_sys_hash__DESC' | '_sys_id__ASC' | '_sys_id__DESC' | '_sys_lastModifiedAt__ASC' | '_sys_lastModifiedAt__DESC' | '_sys_slug__ASC' | '_sys_slug__DESC' | '_sys_title__ASC' | '_sys_title__DESC' | 'image__ASC' | 'image__DESC' | 'untitled__ASC' | 'untitled__DESC'
 
 export interface Authors {
     _analyticsKey: Scalars['String']
@@ -259,7 +256,7 @@ export interface BlockOgImage {
 
 
 /** Rich text block */
-export type BlockRichText = (Body | Body_1 | Body_2 | Content | Subtitle | Subtitle_1) & { __isUnion?: true }
+export type BlockRichText = (Body | Body_1 | Body_2 | Content | Href | Subtitle | Subtitle_1) & { __isUnion?: true }
 
 export interface BlockVideo {
     aspectRatio: Scalars['String']
@@ -391,14 +388,14 @@ export interface ButtonComponent {
     _slugPath: Scalars['String']
     _sys: BlockDocumentSys
     _title: Scalars['String']
-    href: Scalars['String']
+    href: Href
     icon: (Scalars['String'] | null)
     label: Scalars['String']
     type: Scalars['BSHBSelect_1867466044']
     __typename: 'ButtonComponent'
 }
 
-export type ButtonComponentOrderByEnum = '_sys_createdAt__ASC' | '_sys_createdAt__DESC' | '_sys_hash__ASC' | '_sys_hash__DESC' | '_sys_id__ASC' | '_sys_id__DESC' | '_sys_lastModifiedAt__ASC' | '_sys_lastModifiedAt__DESC' | '_sys_slug__ASC' | '_sys_slug__DESC' | '_sys_title__ASC' | '_sys_title__DESC' | 'href__ASC' | 'href__DESC' | 'icon__ASC' | 'icon__DESC' | 'label__ASC' | 'label__DESC' | 'type__ASC' | 'type__DESC'
+export type ButtonComponentOrderByEnum = '_sys_createdAt__ASC' | '_sys_createdAt__DESC' | '_sys_hash__ASC' | '_sys_hash__DESC' | '_sys_id__ASC' | '_sys_id__DESC' | '_sys_lastModifiedAt__ASC' | '_sys_lastModifiedAt__DESC' | '_sys_slug__ASC' | '_sys_slug__DESC' | '_sys_title__ASC' | '_sys_title__DESC' | 'href__ASC' | 'href__DESC' | 'icon__ASC' | 'icon__DESC' | 'label__ASC' | 'label__DESC' | 'type__ASC' | 'type__DESC' | 'untitled__ASC' | 'untitled__DESC'
 
 export interface CalloutComponent {
     _analyticsKey: Scalars['String']
@@ -1174,6 +1171,21 @@ export interface HeroComponent {
 
 export type HeroComponentOrderByEnum = '_sys_createdAt__ASC' | '_sys_createdAt__DESC' | '_sys_hash__ASC' | '_sys_hash__DESC' | '_sys_id__ASC' | '_sys_id__DESC' | '_sys_lastModifiedAt__ASC' | '_sys_lastModifiedAt__DESC' | '_sys_slug__ASC' | '_sys_slug__DESC' | '_sys_title__ASC' | '_sys_title__DESC' | 'actions__ASC' | 'actions__DESC' | 'customerSatisfactionBanner__ASC' | 'customerSatisfactionBanner__DESC' | 'subtitle__ASC' | 'subtitle__DESC' | 'title__ASC' | 'title__DESC'
 
+export interface Href {
+    html: Scalars['String']
+    json: HrefRichText
+    markdown: Scalars['String']
+    plainText: Scalars['String']
+    readingTime: Scalars['Int']
+    __typename: 'Href'
+}
+
+export interface HrefRichText {
+    content: Scalars['BSHBRichTextContentSchema']
+    toc: Scalars['BSHBRichTextTOCSchema']
+    __typename: 'HrefRichText'
+}
+
 export interface List {
     _analyticsKey: Scalars['String']
     _dashboardUrl: Scalars['String']
@@ -1428,7 +1440,7 @@ export interface PagesItem {
     _title: Scalars['String']
     metadataOverrides: MetadataOverridesComponent
     pathname: Scalars['String']
-    sections: (UnionPricingComponentFormComponentHeroComponentCalloutComponentCalloutV2ComponentCompaniesComponentTestimonialSliderComponentFeaturesCardsComponentPricingTableComponentFeaturesBigImageComponentTestimonialsGridComponentFeaturesSideBySideComponentFreeformTextComponentFeaturesGridComponentFaqComponentFeatureHeroComponent[] | null)
+    sections: (UnionPricingComponentHeroComponentCalloutComponentCalloutV2ComponentCompaniesComponentTestimonialSliderComponentFeaturesCardsComponentPricingTableComponentFeaturesBigImageComponentTestimonialsGridComponentFeaturesSideBySideComponentFreeformTextComponentFeaturesGridComponentFaqComponentFormComponentFeatureHeroComponent[] | null)
     __typename: 'PagesItem'
 }
 
@@ -1688,7 +1700,7 @@ export interface RichTextCalloutComponent {
 
 export type RichTextCalloutComponentOrderByEnum = '_sys_createdAt__ASC' | '_sys_createdAt__DESC' | '_sys_hash__ASC' | '_sys_hash__DESC' | '_sys_id__ASC' | '_sys_id__DESC' | '_sys_lastModifiedAt__ASC' | '_sys_lastModifiedAt__DESC' | '_sys_slug__ASC' | '_sys_slug__DESC' | '_sys_title__ASC' | '_sys_title__DESC' | 'content__ASC' | 'content__DESC' | 'size__ASC' | 'size__DESC' | 'type__ASC' | 'type__DESC'
 
-export type RichTextJson = (BaseRichTextJson | BodyRichText | Body_1RichText | Body_2RichText | ContentRichText | SubtitleRichText | Subtitle_1RichText) & { __isUnion?: true }
+export type RichTextJson = (BaseRichTextJson | BodyRichText | Body_1RichText | Body_2RichText | ContentRichText | HrefRichText | SubtitleRichText | Subtitle_1RichText) & { __isUnion?: true }
 
 export interface RightCtas {
     _analyticsKey: Scalars['String']
@@ -1957,7 +1969,7 @@ export type UnionCustomTextComponentBooleanComponent = (BooleanComponent | Custo
 
 export type UnionCustomTextComponentPageReferenceComponent = (CustomTextComponent | PageReferenceComponent) & { __isUnion?: true }
 
-export type UnionPricingComponentFormComponentHeroComponentCalloutComponentCalloutV2ComponentCompaniesComponentTestimonialSliderComponentFeaturesCardsComponentPricingTableComponentFeaturesBigImageComponentTestimonialsGridComponentFeaturesSideBySideComponentFreeformTextComponentFeaturesGridComponentFaqComponentFeatureHeroComponent = (CalloutComponent | CalloutV2Component | CompaniesComponent | FaqComponent | FeatureHeroComponent | FeaturesBigImageComponent | FeaturesCardsComponent | FeaturesGridComponent | FeaturesSideBySideComponent | FormComponent | FreeformTextComponent | HeroComponent | PricingComponent | PricingTableComponent | TestimonialSliderComponent | TestimonialsGridComponent) & { __isUnion?: true }
+export type UnionPricingComponentHeroComponentCalloutComponentCalloutV2ComponentCompaniesComponentTestimonialSliderComponentFeaturesCardsComponentPricingTableComponentFeaturesBigImageComponentTestimonialsGridComponentFeaturesSideBySideComponentFreeformTextComponentFeaturesGridComponentFaqComponentFormComponentFeatureHeroComponent = (CalloutComponent | CalloutV2Component | CompaniesComponent | FaqComponent | FeatureHeroComponent | FeaturesBigImageComponent | FeaturesCardsComponent | FeaturesGridComponent | FeaturesSideBySideComponent | FormComponent | FreeformTextComponent | HeroComponent | PricingComponent | PricingTableComponent | TestimonialSliderComponent | TestimonialsGridComponent) & { __isUnion?: true }
 
 export interface ValueComponent {
     _analyticsKey: Scalars['String']
@@ -3105,15 +3117,12 @@ export interface AuthorComponentGenqlSelection{
     _slugPath?: boolean | number
     _sys?: BlockDocumentSysGenqlSelection
     _title?: boolean | number
-    company?: boolean | number
     image?: BlockImageGenqlSelection
-    role?: boolean | number
-    x?: boolean | number
     __typename?: boolean | number
     __fragmentOn?: "AuthorComponent"
 }
 
-export interface AuthorComponentFilterInput {AND?: (AuthorComponentFilterInput | null),OR?: (AuthorComponentFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),role?: (StringFilter | null),x?: (StringFilter | null)}
+export interface AuthorComponentFilterInput {AND?: (AuthorComponentFilterInput | null),OR?: (AuthorComponentFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null)}
 
 export interface AuthorComponentSearchInput {
 /** Searchable fields for query */
@@ -3582,6 +3591,7 @@ export interface BlockRichTextGenqlSelection{
     on_Body_1?: Body_1GenqlSelection
     on_Body_2?: Body_2GenqlSelection
     on_Content?: ContentGenqlSelection
+    on_Href?: HrefGenqlSelection
     on_Subtitle?: SubtitleGenqlSelection
     on_Subtitle_1?: Subtitle_1GenqlSelection
     __typename?: boolean | number
@@ -3668,7 +3678,7 @@ export interface BlogPostComponentGenqlSelection{
 
 export interface BlogPostComponentFilterInput {AND?: (BlogPostComponentFilterInput | null),OR?: (BlogPostComponentFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),authors?: (BlogPostComponentFilterInput__authors_0___author | null),categories?: (SelectFilter | null),description?: (StringFilter | null),image?: (BlogPostComponentFilterInput__image | null),publishedAt?: (DateFilter | null)}
 
-export interface BlogPostComponentFilterInput__authors_0___author {_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),role?: (StringFilter | null),x?: (StringFilter | null)}
+export interface BlogPostComponentFilterInput__authors_0___author {_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null)}
 
 export interface BlogPostComponentFilterInput__image {_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null)}
 
@@ -3796,7 +3806,7 @@ export interface ButtonComponentGenqlSelection{
     _slugPath?: boolean | number
     _sys?: BlockDocumentSysGenqlSelection
     _title?: boolean | number
-    href?: boolean | number
+    href?: HrefGenqlSelection
     icon?: boolean | number
     label?: boolean | number
     type?: boolean | number
@@ -3804,7 +3814,7 @@ export interface ButtonComponentGenqlSelection{
     __fragmentOn?: "ButtonComponent"
 }
 
-export interface ButtonComponentFilterInput {AND?: (ButtonComponentFilterInput | null),OR?: (ButtonComponentFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),href?: (StringFilter | null),label?: (StringFilter | null),type?: (SelectFilter | null)}
+export interface ButtonComponentFilterInput {AND?: (ButtonComponentFilterInput | null),OR?: (ButtonComponentFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),label?: (StringFilter | null),type?: (SelectFilter | null)}
 
 export interface ButtonComponentSearchInput {
 /** Searchable fields for query */
@@ -3838,7 +3848,7 @@ export interface CalloutComponentGenqlSelection{
 
 export interface CalloutComponentFilterInput {AND?: (CalloutComponentFilterInput | null),OR?: (CalloutComponentFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),actions?: (CalloutComponentFilterInput__actions_0___button | null),subtitle?: (StringFilter | null),title?: (StringFilter | null)}
 
-export interface CalloutComponentFilterInput__actions_0___button {_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),href?: (StringFilter | null),label?: (StringFilter | null),type?: (SelectFilter | null)}
+export interface CalloutComponentFilterInput__actions_0___button {_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),label?: (StringFilter | null),type?: (SelectFilter | null)}
 
 export interface CalloutComponentSearchInput {
 /** Searchable fields for query */
@@ -3872,7 +3882,7 @@ export interface CalloutV2ComponentGenqlSelection{
 
 export interface CalloutV2ComponentFilterInput {AND?: (CalloutV2ComponentFilterInput | null),OR?: (CalloutV2ComponentFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),actions?: (CalloutV2ComponentFilterInput__actions_0___button | null),subtitle?: (StringFilter | null),title?: (StringFilter | null)}
 
-export interface CalloutV2ComponentFilterInput__actions_0___button {_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),href?: (StringFilter | null),label?: (StringFilter | null),type?: (SelectFilter | null)}
+export interface CalloutV2ComponentFilterInput__actions_0___button {_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),label?: (StringFilter | null),type?: (SelectFilter | null)}
 
 export interface CalloutV2ComponentSearchInput {
 /** Searchable fields for query */
@@ -4013,7 +4023,7 @@ export interface ChangelogPostComponentGenqlSelection{
 
 export interface ChangelogPostComponentFilterInput {AND?: (ChangelogPostComponentFilterInput | null),OR?: (ChangelogPostComponentFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),authors?: (ChangelogPostComponentFilterInput__authors_0___author | null),excerpt?: (StringFilter | null),publishedAt?: (DateFilter | null)}
 
-export interface ChangelogPostComponentFilterInput__authors_0___author {_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),role?: (StringFilter | null),x?: (StringFilter | null)}
+export interface ChangelogPostComponentFilterInput__authors_0___author {_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null)}
 
 export interface ChangelogPostComponentSearchInput {
 /** Searchable fields for query */
@@ -4553,7 +4563,7 @@ export interface FeatureHeroComponentGenqlSelection{
 
 export interface FeatureHeroComponentFilterInput {AND?: (FeatureHeroComponentFilterInput | null),OR?: (FeatureHeroComponentFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),actions?: (FeatureHeroComponentFilterInput__actions_0___button | null),heading?: (FeatureHeroComponentFilterInput__heading | null),heroLayout?: (SelectFilter | null),image?: (FeatureHeroComponentFilterInput__image | null)}
 
-export interface FeatureHeroComponentFilterInput__actions_0___button {_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),href?: (StringFilter | null),label?: (StringFilter | null),type?: (SelectFilter | null)}
+export interface FeatureHeroComponentFilterInput__actions_0___button {_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),label?: (StringFilter | null),type?: (SelectFilter | null)}
 
 export interface FeatureHeroComponentFilterInput__heading {_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),align?: (SelectFilter | null),subtitle?: (StringFilter | null),tag?: (StringFilter | null),title?: (StringFilter | null)}
 
@@ -4843,7 +4853,7 @@ export interface FeaturesGridComponentGenqlSelection{
 
 export interface FeaturesGridComponentFilterInput {AND?: (FeaturesGridComponentFilterInput | null),OR?: (FeaturesGridComponentFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),actions?: (FeaturesGridComponentFilterInput__actions_0___button | null),featuresGridList?: (ListFilter | null),heading?: (FeaturesGridComponentFilterInput__heading | null)}
 
-export interface FeaturesGridComponentFilterInput__actions_0___button {_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),href?: (StringFilter | null),label?: (StringFilter | null),type?: (SelectFilter | null)}
+export interface FeaturesGridComponentFilterInput__actions_0___button {_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),label?: (StringFilter | null),type?: (SelectFilter | null)}
 
 export interface FeaturesGridComponentFilterInput__heading {_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),align?: (SelectFilter | null),subtitle?: (StringFilter | null),tag?: (StringFilter | null),title?: (StringFilter | null)}
 
@@ -4915,7 +4925,7 @@ export interface FeaturesSideBySideComponentGenqlSelection{
 
 export interface FeaturesSideBySideComponentFilterInput {AND?: (FeaturesSideBySideComponentFilterInput | null),OR?: (FeaturesSideBySideComponentFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),actions?: (FeaturesSideBySideComponentFilterInput__actions_0___button | null),featuresSideBySideList?: (ListFilter | null),heading?: (FeaturesSideBySideComponentFilterInput__heading | null)}
 
-export interface FeaturesSideBySideComponentFilterInput__actions_0___button {_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),href?: (StringFilter | null),label?: (StringFilter | null),type?: (SelectFilter | null)}
+export interface FeaturesSideBySideComponentFilterInput__actions_0___button {_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),label?: (StringFilter | null),type?: (SelectFilter | null)}
 
 export interface FeaturesSideBySideComponentFilterInput__heading {_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),align?: (SelectFilter | null),subtitle?: (StringFilter | null),tag?: (StringFilter | null),title?: (StringFilter | null)}
 
@@ -5042,7 +5052,7 @@ export interface FormComponentGenqlSelection{
 
 export interface FormComponentFilterInput {AND?: (FormComponentFilterInput | null),OR?: (FormComponentFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),cta?: (FormComponentFilterInput__cta | null),title?: (StringFilter | null)}
 
-export interface FormComponentFilterInput__cta {_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),href?: (StringFilter | null),label?: (StringFilter | null),type?: (SelectFilter | null)}
+export interface FormComponentFilterInput__cta {_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),label?: (StringFilter | null),type?: (SelectFilter | null)}
 
 export interface FormComponentSearchInput {
 /** Searchable fields for query */
@@ -5076,7 +5086,7 @@ export interface FormWrapperComponentGenqlSelection{
 
 export interface FormWrapperComponentFilterInput {AND?: (FormWrapperComponentFilterInput | null),OR?: (FormWrapperComponentFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),cta?: (FormWrapperComponentFilterInput__cta | null),title?: (StringFilter | null)}
 
-export interface FormWrapperComponentFilterInput__cta {_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),href?: (StringFilter | null),label?: (StringFilter | null),type?: (SelectFilter | null)}
+export interface FormWrapperComponentFilterInput__cta {_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),label?: (StringFilter | null),type?: (SelectFilter | null)}
 
 export interface FormWrapperComponentSearchInput {
 /** Searchable fields for query */
@@ -5273,7 +5283,7 @@ export interface HeroComponentGenqlSelection{
 
 export interface HeroComponentFilterInput {AND?: (HeroComponentFilterInput | null),OR?: (HeroComponentFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),actions?: (HeroComponentFilterInput__actions_0___button | null),customerSatisfactionBanner?: (HeroComponentFilterInput__customerSatisfactionBanner | null),subtitle?: (StringFilter | null),title?: (StringFilter | null)}
 
-export interface HeroComponentFilterInput__actions_0___button {_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),href?: (StringFilter | null),label?: (StringFilter | null),type?: (SelectFilter | null)}
+export interface HeroComponentFilterInput__actions_0___button {_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),label?: (StringFilter | null),type?: (SelectFilter | null)}
 
 export interface HeroComponentFilterInput__customerSatisfactionBanner {_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),avatars?: (ListFilter | null),text?: (StringFilter | null)}
 
@@ -5282,6 +5292,29 @@ export interface HeroComponentSearchInput {
 by?: (Scalars['String'][] | null),
 /** Search query */
 q?: (Scalars['String'] | null)}
+
+export interface HrefGenqlSelection{
+    html?: { __args: {
+    /** It automatically generates a unique id for each heading present in the HTML. Enabled by default. */
+    slugs?: (Scalars['Boolean'] | null), 
+    /** Inserts a table of contents at the beginning of the HTML. */
+    toc?: (Scalars['Boolean'] | null)} } | boolean | number
+    json?: HrefRichTextGenqlSelection
+    markdown?: boolean | number
+    plainText?: boolean | number
+    readingTime?: { __args: {
+    /** Words per minute, defaults to average 183wpm */
+    wpm?: (Scalars['Int'] | null)} } | boolean | number
+    __typename?: boolean | number
+    __fragmentOn?: "Href"
+}
+
+export interface HrefRichTextGenqlSelection{
+    content?: boolean | number
+    toc?: boolean | number
+    __typename?: boolean | number
+    __fragmentOn?: "HrefRichText"
+}
 
 export interface ListGenqlSelection{
     _analyticsKey?: { __args: {
@@ -5698,7 +5731,7 @@ export interface PagesItemGenqlSelection{
     _title?: boolean | number
     metadataOverrides?: MetadataOverridesComponentGenqlSelection
     pathname?: boolean | number
-    sections?: UnionPricingComponentFormComponentHeroComponentCalloutComponentCalloutV2ComponentCompaniesComponentTestimonialSliderComponentFeaturesCardsComponentPricingTableComponentFeaturesBigImageComponentTestimonialsGridComponentFeaturesSideBySideComponentFreeformTextComponentFeaturesGridComponentFaqComponentFeatureHeroComponentGenqlSelection
+    sections?: UnionPricingComponentHeroComponentCalloutComponentCalloutV2ComponentCompaniesComponentTestimonialSliderComponentFeaturesCardsComponentPricingTableComponentFeaturesBigImageComponentTestimonialsGridComponentFeaturesSideBySideComponentFreeformTextComponentFeaturesGridComponentFaqComponentFormComponentFeatureHeroComponentGenqlSelection
     __typename?: boolean | number
     __fragmentOn?: "PagesItem"
 }
@@ -5731,7 +5764,7 @@ export interface PagesItemFilterInput__sections_14___freeformText {_id?: (String
 
 export interface PagesItemFilterInput__sections_15___form {_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),cta?: (PagesItemFilterInput__sections_15___form__cta | null),title?: (StringFilter | null)}
 
-export interface PagesItemFilterInput__sections_15___form__cta {_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),href?: (StringFilter | null),label?: (StringFilter | null),type?: (SelectFilter | null)}
+export interface PagesItemFilterInput__sections_15___form__cta {_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),label?: (StringFilter | null),type?: (SelectFilter | null)}
 
 export interface PagesItemFilterInput__sections_1___testimonialSlider {_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),heading?: (PagesItemFilterInput__sections_1___testimonialSlider__heading | null)}
 
@@ -6126,7 +6159,7 @@ export interface QuoteComponentGenqlSelection{
 
 export interface QuoteComponentFilterInput {AND?: (QuoteComponentFilterInput | null),OR?: (QuoteComponentFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),author?: (QuoteComponentFilterInput__author_0___author | null),quote?: (StringFilter | null)}
 
-export interface QuoteComponentFilterInput__author_0___author {_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),role?: (StringFilter | null),x?: (StringFilter | null)}
+export interface QuoteComponentFilterInput__author_0___author {_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null)}
 
 export interface QuoteComponentSearchInput {
 /** Searchable fields for query */
@@ -6213,6 +6246,7 @@ export interface RichTextJsonGenqlSelection{
     on_Body_1RichText?: Body_1RichTextGenqlSelection
     on_Body_2RichText?: Body_2RichTextGenqlSelection
     on_ContentRichText?: ContentRichTextGenqlSelection
+    on_HrefRichText?: HrefRichTextGenqlSelection
     on_SubtitleRichText?: SubtitleRichTextGenqlSelection
     on_Subtitle_1RichText?: Subtitle_1RichTextGenqlSelection
     __typename?: boolean | number
@@ -6661,7 +6695,7 @@ export interface UnionCustomTextComponentPageReferenceComponentGenqlSelection{
     __fragmentOn?: "UnionCustomTextComponentPageReferenceComponent"
 }
 
-export interface UnionPricingComponentFormComponentHeroComponentCalloutComponentCalloutV2ComponentCompaniesComponentTestimonialSliderComponentFeaturesCardsComponentPricingTableComponentFeaturesBigImageComponentTestimonialsGridComponentFeaturesSideBySideComponentFreeformTextComponentFeaturesGridComponentFaqComponentFeatureHeroComponentGenqlSelection{
+export interface UnionPricingComponentHeroComponentCalloutComponentCalloutV2ComponentCompaniesComponentTestimonialSliderComponentFeaturesCardsComponentPricingTableComponentFeaturesBigImageComponentTestimonialsGridComponentFeaturesSideBySideComponentFreeformTextComponentFeaturesGridComponentFaqComponentFormComponentFeatureHeroComponentGenqlSelection{
     on_CalloutComponent?:CalloutComponentGenqlSelection,
     on_CalloutV2Component?:CalloutV2ComponentGenqlSelection,
     on_CompaniesComponent?:CompaniesComponentGenqlSelection,
@@ -6680,7 +6714,7 @@ export interface UnionPricingComponentFormComponentHeroComponentCalloutComponent
     on_TestimonialsGridComponent?:TestimonialsGridComponentGenqlSelection,
     on_BlockDocument?: BlockDocumentGenqlSelection,
     __typename?: boolean | number,
-    __fragmentOn?: "UnionPricingComponentFormComponentHeroComponentCalloutComponentCalloutV2ComponentCompaniesComponentTestimonialSliderComponentFeaturesCardsComponentPricingTableComponentFeaturesBigImageComponentTestimonialsGridComponentFeaturesSideBySideComponentFreeformTextComponentFeaturesGridComponentFaqComponentFeatureHeroComponent"
+    __fragmentOn?: "UnionPricingComponentHeroComponentCalloutComponentCalloutV2ComponentCompaniesComponentTestimonialSliderComponentFeaturesCardsComponentPricingTableComponentFeaturesBigImageComponentTestimonialsGridComponentFeaturesSideBySideComponentFreeformTextComponentFeaturesGridComponentFaqComponentFormComponentFeatureHeroComponent"
 }
 
 export interface ValueComponentGenqlSelection{
@@ -8968,6 +9002,14 @@ export interface FragmentsMap {
   HeroComponent: {
     root: HeroComponent,
     selection: HeroComponentGenqlSelection,
+}
+  Href: {
+    root: Href,
+    selection: HrefGenqlSelection,
+}
+  HrefRichText: {
+    root: HrefRichText,
+    selection: HrefRichTextGenqlSelection,
 }
   List: {
     root: List,

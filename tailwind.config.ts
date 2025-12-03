@@ -161,6 +161,14 @@ const config: Config = {
             opacity: "0.5",
           },
         },
+        shimmer: {
+          "0%, 90%, 100%": {
+            "background-position": "calc(-100% - var(--shimmer-width)) 0",
+          },
+          "30%, 60%": {
+            "background-position": "calc(100% + var(--shimmer-width)) 0",
+          },
+        },
       },
       letterSpacing: {
         tighter: "-0.58px",
@@ -191,9 +199,10 @@ const config: Config = {
       exitToLeft: "exitToLeft 250ms ease",
       exitToRight: "exitToRight 250ms ease",
       pulse: "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+      shimmer: "shimmer 8s infinite",
     },
   },
-  plugins: [typography, radix],
+  plugins: [typography, radix, require("tailwindcss-animate")],
 };
 
 export default config;
